@@ -1,0 +1,91 @@
+\title{CS 6000 Fall 2021: Journal 10}
+
+\author{William Wesley\\
+  % UC-Colorado Springs \\
+  % 1420 Austin Bluffs Pkwy. \\
+  % Colorado Springs, Colorado 80918 \\
+  % {\tt wwesley@uccs.edu}
+  }
+
+\documentclass[8pt, letterpaper]{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{xurl}
+\usepackage[super,comma,sort&compress]{natbib}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=blue, linkcolor=blue, citecolor=blue}
+
+\usepackage{stix}
+\newcommand{\kora}{$($\rotatebox{45}{$\smile$}$^{\circ}\smwhtsquare^{\circ})\rotatebox{45}{$\smile$}\mkern-6mu\frown$\raisebox{0.5ex}{$\bot$}$\mkern-3.5mu-\mkern-3.5mu$\raisebox{0.5ex}{$\bot$}}
+
+\begin{document}
+
+\maketitle
+% Summarize your learning experience with respect to the paper writing process including finding papers, reviewing them, organizing them into a coherent story and putting that all into a paper.
+% Address shat do feelt you did well, and why and then what you could do better next paper and how you plan to change your process.
+\section{On Google Scholar as a Tool for Literature Surveys and Meta-analyses}
+
+Dr. Boult indicated that he would like me to rewrite the course paper as a meta-analysis, since that's basically what I was doing anyway.
+One of the features of a meta analysis (and perhaps something surveys should have as well), is an explanation of how the the primary studies were identified and selected for inclusion in the study.
+My original process was not rigorous.
+My first pass was to search Google Scholar for \texttt{``test driven development'' experiment} and scan the first ten pages (20 results per page) of results for potential studies.
+My criteria for what qualified as a potential study was not particularly specific, and more based on gut feeling.
+I tried to skip duplicates of papers I already had, other surveys, papers reporting on tools or experiences, or papers that were not comparative studies of TDD against something not TDD.
+I must admit that I was likely not consistent and fatigue likely encouraged me to be more cynical regarding papers as the sessions wore on.
+
+Each result that was potentially a match I opened in a new browser tab.
+Once I had a dozen or so results, or otherwise felt tired of looking at scholar results, I would work on the open tabs.
+For each potential result, I would add the paper to my survey bib file, and acquire a PDF copy of the paper either directly from the source or through KFL.
+This was also a tedious process.
+
+A third stage was to scan the downloaded papers on-screen in the order they appeared in the bib file.
+I looked to confirm the paper was about a study that compared TDD against something non-TDD.
+Case studies and controlled experiments fit this bill, and other papers were discarded.
+
+All through this, I failed to note how many papers I was excluding and why.
+That would have been helpful, because when I went to reproduce what I had done, I discovered that Scholar results are fickle.
+I manually copied out the first 200 results for my beloved search term and started looking at them, comparing the list to what I had included in my paper and noting down the reason I excluded ones I recognized.
+But something bothered me - Scholar reported 9,980 results whereas I had recorded it reporting 9,550 not long ago.
+I thought it weird; did that mean 430 papers had been published matching my search term in less than a month?
+Further, many of the results in the first 200 I did not recognize, and they had been published well before I did my previous search.
+
+So, I decided that I should just get all of the results and be more pedantic about exclusion criteria.
+This is not going to happen soon, but I intend to do it before publishing the paper.
+Which means I need some structure and repeatability in each of the steps of the analysis.
+The first step is results acquisition.
+Just getting the names of the papers and authors thereof.
+So I wrote some Python to use Selenium\cite{Angmo_seleniumtool} to scrape the results from Scholar, complete with code to allow me to step in and complete Captcha prompts should they appear.
+In doing so, I discovered that Scholar does not allow you to access results beyond the first thousand.
+
+It reports there are thousands or results, but will only present you with the first thousand (or less) ordered by some secret relevancy that factors in your previous search history (my results differed from results collected by the script).
+\kora!
+So much for repeatability.
+
+\section{Onward as Ye Go}
+
+For now, I'm going to shelve the selection process details.
+My focus is going to be on automating the statistical analysis of the data I currently have and improving some of the wording in the backend of the paper that I should have taken care of as part of what I turned in as my second draft.
+The selection process must have more attention before I publish, but will consume much more of my time than I have to complete it this semester.
+
+If I find the time, I will manually and error-pronely cull, categorize, and label as many of the first thousand results as I can for the paper for the class.
+My first goal will be to just look at the first 200, possibly including new papers as found.
+I'm not sure all of the papers I currently have analyzed are going to be in that first 200.
+I believe I can get around the limit on the number of results Scholar allows you to access by filtering by each year between 2001 and 2021.
+I'd be surprised if more than a thousand papers on TDD were published in any given year, and just checking the number reported by scholar, I did not see any.
+For now, my goal will be to develop a system by which to tackle all nine thousand-ish results.
+
+Something in my mind is that it would be ideal to have a second author on the paper.
+Specifically someone willing to help with the culling, categorization, and labeling of the papers.
+I'll be reaching out to Dr. Brown about what something like that would take.
+Also, is it appropriate or expected that Dr. Boult be listed as an author on the paper as well?
+
+%%%%%%%%%%%%%%
+% References %
+%%%%%%%%%%%%%%
+
+% \nocite{*}
+\bibliographystyle{ieeetr}
+\bibliography{journal10}
+
+\end{document}

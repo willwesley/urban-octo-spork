@@ -1,0 +1,15 @@
+*.pdf
+*.log
+*.aux
+*.out
+*.bbl
+*.blg
+*.toc
+*.snm
+*.nav
+*.vrb
+.fuse*
+
+venv/
+.pytest_cache/
+__pycache__
